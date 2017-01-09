@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab1</string>
+    <string name="hello_message">Chào thế giới!</string>
+    <string name="ButtonText">Tôi là một nút</string>
+</resources>
