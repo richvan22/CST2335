@@ -3,7 +3,8 @@
     <string name="app_name">Lab1</string>
     <string name="hello_message">Chào thế giới!</string>
     <string name="ButtonText">Tôi là một nút</string>
-    <string name="title_activity_login">LoginActivity -v</string>
-    <string name="login">Login -v</string>
-    <string name="title_activity_list_items">ActivityListItems -v</string>
+    <string name="title_activity_login">hoạt động đăng nhập</string>
+    <string name="login">đăng nhập</string>
+    <string name="title_activity_list_items">danh sách các mục hoạt động</string>
+    <string name="password">mật khẩu</string>
 </resources>
