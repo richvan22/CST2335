@@ -6,4 +6,8 @@
     <string name="login">login</string>
     <string name="title_activity_list_items">ActivityListItems</string>
     <string name="password">password</string>
+    <string name="dialog_message">dialog message</string>
+    <string name="dialog_title">dialog title</string>
+    <string name="cancel">cancel</string>
+    <string name="ok">ok</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="login">đăng nhập</string>
     <string name="title_activity_list_items">danh sách các mục hoạt động</string>
     <string name="password">mật khẩu</string>
+    <string name="dialog_message">dialog message -vt</string>
+    <string name="dialog_title">dialog title -vt</string>
+    <string name="cancel">cancel -vt</string>
+    <string name="ok">ok</string>
 </resources>
