@@ -25,6 +25,17 @@ protected static final String ACTIVITY_NAME="StartActivity";
                 startActivityForResult(intent, 5); // request code 5
             }
         });
+
+        Button chatButton = (Button)findViewById(R.id.button3);
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //start chat on click
+                Log.i(ACTIVITY_NAME, "User clicked start chat");
+                Intent intent2 = new Intent(StartActivity.this, ChatWindow.class);
+                startActivity(intent2);
+
+            }
+        });
     }
 
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {

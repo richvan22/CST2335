@@ -11,4 +11,6 @@
     <string name="dialog_title">dialog title -vt</string>
     <string name="cancel">cancel -vt</string>
     <string name="ok">ok</string>
+    <string name="start_chat">Start Chat -vt</string>
+    <string name="send">Send -vt</string>
 </resources>
