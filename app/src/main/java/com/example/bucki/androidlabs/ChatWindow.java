@@ -1,8 +1,10 @@
 package com.example.bucki.androidlabs;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 
 public class ChatWindow extends AppCompatActivity {
     ArrayList<String> chat = new ArrayList<String>();
+    private static final String ACTIVITY_NAME = "ChatWindowActivity";
+    private ChatDatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +31,26 @@ public class ChatWindow extends AppCompatActivity {
         final Button send = (Button)findViewById(R.id.button4);
         final EditText message = (EditText)findViewById(R.id.editText);
 
+        //create database using helper
+        helper = new ChatDatabaseHelper(this);
+        Cursor cursor = helper.getData();
+
+        while(cursor.moveToNext()){
+            chat.add( cursor.getString( cursor.getColumnIndex(helper.KEY_MSG) ) );
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE: " + cursor.getString( cursor.getColumnIndex(helper.KEY_MSG) ) );
+        }
+
         final ChatAdapter messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chat.add(message.getText().toString());
+                String newMessage = message.getText().toString();
                 messageAdapter.notifyDataSetChanged(); //this restarts the process of getCount()/getView()
                 message.setText(""); // empty text field when send is pressed
+                chat.add(newMessage);
+                helper.insertData(newMessage);
             }
         });
     }
@@ -63,5 +78,10 @@ public class ChatWindow extends AppCompatActivity {
             message.setText(getItem(position));
             return result;
         }
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        helper.close();
     }
 }
